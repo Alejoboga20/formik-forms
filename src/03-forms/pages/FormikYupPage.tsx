@@ -9,7 +9,7 @@ const initialValues: FormValues = {
 };
 
 export const FormikYupPage = () => {
-	const { handleSubmit, handleChange, handleBlur, touched, values, errors } = useFormik({
+	const { handleSubmit, getFieldProps, touched, errors } = useFormik({
 		initialValues,
 		onSubmit: (values) => {
 			console.log(values);
@@ -27,33 +27,15 @@ export const FormikYupPage = () => {
 
 			<form noValidate onSubmit={handleSubmit}>
 				<label htmlFor='firstName'>First Name</label>
-				<input
-					type='text'
-					name='firstName'
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.firstName}
-				/>
+				<input type='text' {...getFieldProps('firstName')} />
 				{touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
 
 				<label htmlFor='lastName'>Last Name</label>
-				<input
-					type='text'
-					name='lastName'
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.lastName}
-				/>
+				<input type='text' {...getFieldProps('lastName')} />
 				{touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
 				<label htmlFor='email'>Email</label>
-				<input
-					type='email'
-					name='email'
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.email}
-				/>
+				<input type='email' {...getFieldProps('email')} />
 				{touched.email && errors.email && <span>{errors.email}</span>}
 
 				<button type='submit'>Submit</button>
