@@ -24,7 +24,9 @@ export const RegisterFormikPage = () => {
 						.required('Required'),
 					email: Yup.string().email('Should be valid email').required('Required'),
 					password1: Yup.string().min(6, 'Should have at last 6 chars').required('Required'),
-					password2: Yup.string().oneOf([Yup.ref('password1'), null], 'Passwords must match'),
+					password2: Yup.string()
+						.oneOf([Yup.ref('password1')], 'Passwords must match')
+						.required('Required'),
 				})}
 			>
 				{() => (
