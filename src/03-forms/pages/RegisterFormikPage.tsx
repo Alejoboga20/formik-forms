@@ -29,7 +29,7 @@ export const RegisterFormikPage = () => {
 						.required('Required'),
 				})}
 			>
-				{() => (
+				{({ handleReset }) => (
 					<Form>
 						<MyTextInput label='Name' name='name' placeholder='Username' />
 						<MyTextInput
@@ -47,6 +47,7 @@ export const RegisterFormikPage = () => {
 						/>
 
 						<button type='submit'>Submit</button>
+						<button onClick={handleReset}>Reset</button>
 					</Form>
 				)}
 			</Formik>
