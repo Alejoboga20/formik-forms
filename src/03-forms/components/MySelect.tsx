@@ -1,6 +1,6 @@
 import { useField } from 'formik';
 
-export const MySelect = ({ label, ...props }: MyTextInputProps) => {
+export const MySelect = ({ label, ...props }: MySelectProps) => {
 	const [field, meta] = useField(props);
 
 	return (
@@ -12,7 +12,7 @@ export const MySelect = ({ label, ...props }: MyTextInputProps) => {
 	);
 };
 
-interface MyTextInputProps {
+interface MySelectProps {
 	label: string;
 	name: string;
 	placeholder?: string;
